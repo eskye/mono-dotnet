@@ -43,7 +43,7 @@ SDK is compatible with both .NET Core and .NET Standard project.
 
 ## License
 
-The MIT License (MIT). Please see <a href="https://github.com/withmono/mono-node/blob/main/LICENSE.md">License File</a> for more information.
+The MIT License (MIT). Please see <a href="https://github.com/eskye/mono-dotnet/blob/main/LICENSE.md">License File</a> for more information.
 
 ## Contribution
 
