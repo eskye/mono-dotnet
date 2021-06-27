@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{18884E16-5928-4C46-920D-84BF6BB1FB23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B33F926C-1326-4597-B14D-4002410A3B47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk", "src\Mono.Net.Sdk\Mono.Net.Sdk.csproj", "{41A4D399-5879-439B-9E64-E701AE8D62BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk.Tests", "test\Mono.Net.Sdk.Tests\Mono.Net.Sdk.Tests.csproj", "{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41A4D399-5879-439B-9E64-E701AE8D62BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41A4D399-5879-439B-9E64-E701AE8D62BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41A4D399-5879-439B-9E64-E701AE8D62BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41A4D399-5879-439B-9E64-E701AE8D62BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41A4D399-5879-439B-9E64-E701AE8D62BC} = {18884E16-5928-4C46-920D-84BF6BB1FB23}
+		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9} = {B33F926C-1326-4597-B14D-4002410A3B47}
+	EndGlobalSection
+EndGlobal
