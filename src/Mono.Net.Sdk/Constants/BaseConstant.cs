@@ -2,6 +2,6 @@
 {
     public static class BaseConstant
     {
-        public const string MonoBaseUrl = "https://api.withmono.com/";
+        public const string MonoBaseUrl = "https://api.withmono.com";
     }
 }

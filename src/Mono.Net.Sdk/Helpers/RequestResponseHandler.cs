@@ -25,7 +25,7 @@ namespace Mono.Net.Sdk.Helpers
         /// <param name="message"></param> 
         /// <returns name="RequestResponseHandler"></returns>
         /// <exception cref="MonoApiException"></exception>
-        public new static async Task<RequestResponseHandler<T>> FromMessage(HttpResponseMessage message)
+        public static async Task<RequestResponseHandler<T>> FromMessage(HttpResponseMessage message)
         {
             var response = new RequestResponseHandler<T>
             {
