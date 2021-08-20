@@ -28,7 +28,8 @@ namespace Mono.Net.Sdk
                 throw new ArgumentNullException(nameof(request));
             if (string.IsNullOrEmpty(_config.SecretKey)) 
                 throw new ArgumentNullException("Your (Mono Secret Key) must be configured", nameof(_config.SecretKey));
-            request.Headers.Authorization = new AuthenticationHeaderValue(_config.SecretKey);
+            //request.Headers.Authorization = new AuthenticationHeaderValue();
+            request.Headers.Add("mono-sec-key", _config.SecretKey);
             return Task.FromResult(0);
         }
     }

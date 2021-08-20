@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk", "src\Mono.Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk.Tests", "test\Mono.Net.Sdk.Tests\Mono.Net.Sdk.Tests.csproj", "{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "src\SampleApp\SampleApp.csproj", "{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +24,14 @@ Global
 		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{41A4D399-5879-439B-9E64-E701AE8D62BC} = {18884E16-5928-4C46-920D-84BF6BB1FB23}
 		{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9} = {B33F926C-1326-4597-B14D-4002410A3B47}
+		{A58B11B1-1A07-4C1B-873F-BE7F66A7258C} = {18884E16-5928-4C46-920D-84BF6BB1FB23}
 	EndGlobalSection
 EndGlobal
