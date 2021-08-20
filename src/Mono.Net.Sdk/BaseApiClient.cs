@@ -45,31 +45,31 @@ namespace Mono.Net.Sdk
             _apiAuthHeader = new SecretKeyAuthHeader(config);
             
         }
-        public async Task<RequestResponseHandler<T>> PostHttpAsync<T>(string url, object data)
+        public async Task<RequestResponseHandler<TResult>> PostHttpAsync<TResult>(string url, object data, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
-            return await SendRequestAsync<T>(new HttpRequestMessage(HttpMethod.Post, url)
+            return await SendRequestAsync<TResult>(new HttpRequestMessage(HttpMethod.Post, url)
             {
                 Content = HttpHelper.GetJsonBody(data)
-            });
+            }, cancellationToken);
         }
         
-        public async Task<RequestResponseHandler<T>> DeleteHttpAsync<T>(string url)
+        public async Task<RequestResponseHandler<TResult>> DeleteHttpAsync<TResult>(string url, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
-            return await SendRequestAsync<T>(new HttpRequestMessage(HttpMethod.Delete, url));
+            return await SendRequestAsync<TResult>(new HttpRequestMessage(HttpMethod.Delete, url), cancellationToken);
         }
-        public async Task<RequestResponseHandler<T>> GetHttpAsync<T>(string url)
+        public async Task<RequestResponseHandler<TResult>> GetHttpAsync<TResult>(string url,CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
-            return await SendRequestAsync<T>(new HttpRequestMessage(HttpMethod.Get, url));
+            return await SendRequestAsync<TResult>(new HttpRequestMessage(HttpMethod.Get, url), cancellationToken);
         }
          
-        private async Task<RequestResponseHandler<T>> SendRequestAsync<T>(HttpRequestMessage requestMessage, CancellationToken cancellationToken = default)
+        private async Task<RequestResponseHandler<TResult>> SendRequestAsync<TResult>(HttpRequestMessage requestMessage, CancellationToken cancellationToken = default)
         { 
             await _apiAuthHeader.SetAuthHeaderCredential(requestMessage); 
             var response = await _httpClient.SendAsync(requestMessage,cancellationToken); 
-            return await RequestResponseHandler<T>.FromMessage(response); 
+            return await RequestResponseHandler<TResult>.FromMessage(response); 
         }
     }
 }

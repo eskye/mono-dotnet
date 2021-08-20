@@ -4,11 +4,18 @@
         <TargetFramework>net5.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <UserSecretsId>1c502890-45a7-4744-8d2b-b4327e6493e3</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1"/>
-        <PackageReference Include="xunit" Version="2.4.1"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+        <PackageReference Include="Moq" Version="4.14.5" />
+        <PackageReference Include="Shouldly" Version="3.0.1" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -17,6 +24,10 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Mono.Net.Sdk\Mono.Net.Sdk.csproj" />
     </ItemGroup>
 
 </Project>
