@@ -37,7 +37,7 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
  
 - [Account Information](#info)
 - [Account Statement](#statement)
-- Poll Account Statement PDF
+- [Poll Account Statement PDF](#statement_pdf)
 - Transactions
 - Credits
 - Debits
