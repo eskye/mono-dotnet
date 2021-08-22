@@ -72,6 +72,14 @@ namespace Mono.Net.Sdk.Account
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
         Task<ApiResponse<IncomeResponse>> GetIncome(string accountId, CancellationToken cancellationToken = default(CancellationToken));
+        
+        /// <summary>
+        /// Get a high level overview of an account identity data for a specified accountId <paramref name="accountId"/>
+        /// </summary>
+        /// <param name="accountId">Account ID returned from token exchange</param>
+        /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
+        /// <returns></returns>
+        Task<ApiResponse<IdentityResponse>> GetUserIdentity(string accountId, CancellationToken cancellationToken = default(CancellationToken));
     }
     
 }

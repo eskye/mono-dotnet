@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Mono.Net.Sdk.Config;
@@ -96,6 +95,13 @@ namespace Mono.Net.Sdk.Account
         {
             if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
             var response = await _apiClient.GetHttpAsync<IncomeResponse>($"accounts/{accountId}/income", cancellationToken);
+            return response.ToApiResponse();
+        }
+
+        public async Task<ApiResponse<IdentityResponse>> GetUserIdentity(string accountId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
+            var response = await _apiClient.GetHttpAsync<IdentityResponse>($"accounts/{accountId}/identity", cancellationToken);
             return response.ToApiResponse();
         }
     }

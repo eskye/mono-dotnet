@@ -29,5 +29,16 @@ namespace Mono.Net.Sdk.Tests.Accounts
             response.Data.ShouldNotBeNull();
             response.Data.Type.ShouldNotBeNull(); 
         }
+        
+        [Fact]
+        public async Task CanGetUserAccountIdentity()
+        {
+            var response = await _monoClient.Accounts.GetUserIdentity(ApiTestFixture.AccountId);
+            response.ShouldNotBeNull();
+            response.Data.ShouldNotBeNull(); 
+            response.Data.FullName.ShouldNotBeNull(); 
+            response.Data.Bvn.ShouldNotBeNull(); 
+            response.Data.Phone.ShouldNotBeNull(); 
+        }
     }
 }
