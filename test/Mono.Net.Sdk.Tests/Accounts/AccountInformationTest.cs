@@ -15,7 +15,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetAccountInformation()
         {
-            var response = await _monoClient.Accounts.GetAccountInformation(ApiTestHelper.AccountId);
+            var response = await _monoClient.Accounts.GetAccountInformation(ApiTestFixture.AccountId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Meta.ShouldNotBeNull();

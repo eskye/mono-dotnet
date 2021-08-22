@@ -16,7 +16,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetAccountStatementInJsonFormat()
         { 
-            var response = await _monoClient.Accounts.GetAccountStatementsInJson(ApiTestHelper.AccountId);
+            var response = await _monoClient.Accounts.GetAccountStatementsInJson(ApiTestFixture.AccountId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Meta.ShouldNotBeNull();
@@ -25,7 +25,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetAccountStatementInPdfFormat()
         {
-            var response = await _monoClient.Accounts.GetAccountStatementsPdf(ApiTestHelper.AccountId);
+            var response = await _monoClient.Accounts.GetAccountStatementsPdf(ApiTestFixture.AccountId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Id.ShouldNotBeNull();
@@ -37,7 +37,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetPollPdfAccountStatementStatus()
         {
-            var response = await _monoClient.Accounts.GetPollPdfAccountStatementStatus(ApiTestHelper.AccountId, jobId);
+            var response = await _monoClient.Accounts.GetPollPdfAccountStatementStatus(ApiTestFixture.AccountId, jobId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Id.ShouldNotBeNull();

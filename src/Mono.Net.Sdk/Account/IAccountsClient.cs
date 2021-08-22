@@ -43,5 +43,27 @@ namespace Mono.Net.Sdk.Account
         /// <returns></returns>
         Task<ApiResponse<StatementPdfResponse>> GetPollPdfAccountStatementStatus(string accountId, string jobId,
             CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// With this resource, you can retrieve the list of known transactions on the account.
+        /// </summary>
+        /// <param name="accountId">Account ID returned from token exchange</param> 
+        /// <param name="paginate">true or false (If you want to receive the data all at once or you want it paginated)</param>
+        /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
+        /// <param name="start">start period of the transactions eg. 01-10-2020</param>
+        /// <param name="end">end period of the transactions eg. 07-10-2020</param>
+        /// <param name="narration">filters all transactions by narration e.g Uber transactions</param>
+        /// <param name="limit">limit the number of transactions returned per API call</param>
+        /// <param name="type">filters transactions by debit or credit</param>
+        /// <returns></returns>
+        Task<ApiResponse<TransactionsResponse>> GetAccountTransactions(string accountId,
+            string start = null,
+            string end = null,
+            string narration = null,
+            int limit = 0,
+            string type = TransactionType.Credit,
+            bool paginate = false,
+            CancellationToken cancellationToken = default(CancellationToken));
     }
+    
 }

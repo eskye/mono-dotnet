@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Mono.Net.Sdk.Config;
@@ -52,6 +53,42 @@ namespace Mono.Net.Sdk.Account
             if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId)); 
             if (string.IsNullOrWhiteSpace(jobId)) throw new ArgumentNullException(nameof(jobId));  
             var response = await _apiClient.GetHttpAsync<StatementPdfResponse>($"accounts/{accountId}/statement/jobs/{jobId}", cancellationToken);
+            return response.ToApiResponse();
+        }
+
+        public async Task<ApiResponse<TransactionsResponse>> GetAccountTransactions(string accountId,
+            string start = null,
+            string end = null, 
+            string narration = null, 
+            int limit = 0, 
+            string type = TransactionType.Credit,
+            bool paginate = false,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
+
+            
+            if (!string.IsNullOrWhiteSpace(start) && !DateTime.TryParse(start, out _))
+                throw new ArgumentException("Invalid date format; please use dd-mm-yyy ie 05-01-2020");
+             
+            if (!string.IsNullOrWhiteSpace(end) &&  !DateTime.TryParse(end, out _)) 
+                throw new ArgumentException("Invalid date format; please use dd-mm-yyy ie 05-01-2020");
+            
+            if(!string.IsNullOrWhiteSpace(type) && (type is not (TransactionType.Credit or TransactionType.Debit)))
+                throw new ArgumentException("Invalid transaction filtering type: please use credit or debit to filter transaction");
+                
+            var accountTransactionsOptionsRequest = new AccountTransactionsOptionsRequest
+            {
+                Start = start,
+                End = end,
+                Narration = narration, 
+                Type = type,
+                Paginate = paginate,
+                Limit = limit
+            };
+            var queryString = accountTransactionsOptionsRequest.PathWithQuery("transactions");
+            var response = await _apiClient.GetHttpAsync<TransactionsResponse>($"accounts/{accountId}/{queryString}",
+                    cancellationToken);
             return response.ToApiResponse();
         }
     }
