@@ -62,7 +62,7 @@ This resource returns the account details with the financial institution.
 
 ```C#
 
- await monoClient.Accounts.GetAccountInformation(string accountId);
+ await monoClient.Accounts.GetInformation(string accountId);
 
 ```
 
@@ -70,7 +70,7 @@ This resource returns the account details with the financial institution.
 This resource returns the bank statement of the connected financial account in JSON.  
 You can query 1-12 months bank statement in one single call.
 ```C#
-await monoClient.Accounts.GetAccountStatementsInJson(string accountId); 
+await monoClient.Accounts.GetStatementsInJson(string accountId); 
 
 ```
 
@@ -78,7 +78,7 @@ await monoClient.Accounts.GetAccountStatementsInJson(string accountId);
 This resource returns the bank statement of the connected financial account in PDF.  
 You can query 1-12 months bank statement in one single call.
 ```C#
-await monoClient.Accounts.GetAccountStatementsPdf(string accountId); 
+await monoClient.Accounts.GetStatementsPdf(string accountId); 
 
 ```
 

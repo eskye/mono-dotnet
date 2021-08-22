@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Mono.Net.Sdk.Models.Account
 {
-    public class StatementResponse
+    public  class TransactionsResponse
     {
-        [JsonProperty("meta")]
-        public ResponseMeta Meta { get; set; }
+        [JsonProperty("paging")]
+        public PagingResponse Paging { get; set; }
 
         [JsonProperty("data")]
-        public List<Statement> StatementList { get; set; }
+        public List<Transaction> Transactions { get; set; }
     }
-    
-    public class Statement
+
+    public class Transaction
     {
         [JsonProperty("_id")]
         public string Id { get; set; }
@@ -33,23 +32,5 @@ namespace Mono.Net.Sdk.Models.Account
 
         [JsonProperty("balance")]
         public long Balance { get; set; }
-    }
-
-    public class ResponseMeta
-    {
-        [JsonProperty("count")]
-        public long Count { get; set; }
-    }
-
-    public enum OutputType
-    {
-        Pdf=1,
-        Json
-    }
-
-    public static class TransactionType
-    {
-        public const  string Credit = "credit";
-        public const string Debit = "debit";
     }
 }

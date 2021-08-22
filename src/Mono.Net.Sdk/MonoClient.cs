@@ -1,6 +1,5 @@
 ﻿using Mono.Net.Sdk.Account;
 using Mono.Net.Sdk.Config;
-using Mono.Net.Sdk.Interfaces;
 
 namespace Mono.Net.Sdk
 {
@@ -16,6 +15,7 @@ namespace Mono.Net.Sdk
         public MonoClient(string secretKey) : this(new ApiConfig(secretKey))
         {
         }
+        
         /// <summary>
         /// 
         /// </summary>
