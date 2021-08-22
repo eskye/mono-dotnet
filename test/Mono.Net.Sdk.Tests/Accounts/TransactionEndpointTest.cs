@@ -16,7 +16,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetAccountTransactionList()
         {
-            var response = await _monoClient.Accounts.GetAccountTransactions(ApiTestFixture.AccountId);
+            var response = await _monoClient.Accounts.GetTransactions(ApiTestFixture.AccountId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Transactions.Count.ShouldBeGreaterThan(0);
@@ -27,7 +27,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [InlineData(3)]
         public async Task CanGetAccountTransactionListWithLimit(int limit)
         {
-            var response = await _monoClient.Accounts.GetAccountTransactions(ApiTestFixture.AccountId,paginate:true,limit:limit);
+            var response = await _monoClient.Accounts.GetTransactions(ApiTestFixture.AccountId,paginate:true,limit:limit);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull(); 
             response.Data.Paging.ShouldNotBeNull();
@@ -38,7 +38,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [InlineData("01-08-2021", "10-08-2021")] 
         public async Task CanGetAccountTransactionListWithStartAndEndDateAndNoPagination(string start, string end)
         {
-            var response = await _monoClient.Accounts.GetAccountTransactions(ApiTestFixture.AccountId,start:start, end: end);
+            var response = await _monoClient.Accounts.GetTransactions(ApiTestFixture.AccountId,start:start, end: end);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull(); 
             response.Data.Transactions.Count.ShouldBeOfType<int>();
@@ -50,7 +50,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [InlineData(false)]
         public async Task CanGetAccountTransactionListWithPagination(bool paginate)
         {
-            var response = await _monoClient.Accounts.GetAccountTransactions(ApiTestFixture.AccountId,paginate:paginate);
+            var response = await _monoClient.Accounts.GetTransactions(ApiTestFixture.AccountId,paginate:paginate);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             if(!paginate)
@@ -67,7 +67,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [InlineData("debit")] 
         public async Task CanGetAccountTransactionListWithFilter(string type)
         {
-            var response = await _monoClient.Accounts.GetAccountTransactions(ApiTestFixture.AccountId,type:type);
+            var response = await _monoClient.Accounts.GetTransactions(ApiTestFixture.AccountId,type:type);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull(); 
             response.Data.Transactions.Count.ShouldBeOfType<int>();

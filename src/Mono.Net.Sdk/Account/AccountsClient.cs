@@ -21,14 +21,14 @@ namespace Mono.Net.Sdk.Account
             _apiAuthHeader = new SecretKeyAuthHeader(config);
         }
         
-        public async Task<ApiResponse<InformationResponse>> GetAccountInformation(string accountId,  CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ApiResponse<InformationResponse>> GetInformation(string accountId,  CancellationToken cancellationToken = default(CancellationToken))
         {
             if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
             var response = await _apiClient.GetHttpAsync<InformationResponse>($"accounts/{accountId}", cancellationToken);
             return response.ToApiResponse();
         }
         
-        public async Task<ApiResponse<StatementResponse>> GetAccountStatementsInJson(string accountId, int period = 1, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ApiResponse<StatementResponse>> GetStatementsInJson(string accountId, int period = 1, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId)); 
             var periodText = $"last{period}months";
@@ -38,7 +38,7 @@ namespace Mono.Net.Sdk.Account
             return response.ToApiResponse();
         }
         
-        public async Task<ApiResponse<StatementPdfResponse>> GetAccountStatementsPdf(string accountId, int period = 1,  CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ApiResponse<StatementPdfResponse>> GetStatementsPdf(string accountId, int period = 1,  CancellationToken cancellationToken = default(CancellationToken))
         {
             if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId)); 
             var periodText = $"last{period}months";
@@ -56,7 +56,7 @@ namespace Mono.Net.Sdk.Account
             return response.ToApiResponse();
         }
 
-        public async Task<ApiResponse<TransactionsResponse>> GetAccountTransactions(string accountId,
+        public async Task<ApiResponse<TransactionsResponse>> GetTransactions(string accountId,
             string start = null,
             string end = null, 
             string narration = null, 
@@ -89,6 +89,13 @@ namespace Mono.Net.Sdk.Account
             var queryString = accountTransactionsOptionsRequest.PathWithQuery("transactions");
             var response = await _apiClient.GetHttpAsync<TransactionsResponse>($"accounts/{accountId}/{queryString}",
                     cancellationToken);
+            return response.ToApiResponse();
+        }
+
+        public async Task<ApiResponse<IncomeResponse>> GetIncome(string accountId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
+            var response = await _apiClient.GetHttpAsync<IncomeResponse>($"accounts/{accountId}/income", cancellationToken);
             return response.ToApiResponse();
         }
     }

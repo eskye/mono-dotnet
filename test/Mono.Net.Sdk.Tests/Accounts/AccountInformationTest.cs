@@ -15,10 +15,19 @@ namespace Mono.Net.Sdk.Tests.Accounts
         [Fact]
         public async Task CanGetAccountInformation()
         {
-            var response = await _monoClient.Accounts.GetAccountInformation(ApiTestFixture.AccountId);
+            var response = await _monoClient.Accounts.GetInformation(ApiTestFixture.AccountId);
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Meta.ShouldNotBeNull();
+        }
+        
+        [Fact]
+        public async Task CanGetAccountIncome()
+        {
+            var response = await _monoClient.Accounts.GetIncome(ApiTestFixture.AccountId);
+            response.ShouldNotBeNull();
+            response.Data.ShouldNotBeNull();
+            response.Data.Type.ShouldNotBeNull(); 
         }
     }
 }

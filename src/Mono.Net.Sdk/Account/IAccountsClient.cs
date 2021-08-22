@@ -13,7 +13,7 @@ namespace Mono.Net.Sdk.Account
         /// <param name="accountId">Account ID returned from token exchange</param>
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
-        Task<ApiResponse<InformationResponse>> GetAccountInformation(string accountId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ApiResponse<InformationResponse>> GetInformation(string accountId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get the bank statement of a connected financial account for a specified accountId <paramref name="accountId"/> in JSON output format
         /// </summary>
@@ -21,7 +21,7 @@ namespace Mono.Net.Sdk.Account
         /// <param name="period">You can query 1-12 months bank statement in one single call.</param>
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
-        Task<ApiResponse<StatementResponse>> GetAccountStatementsInJson(string accountId, int period = 1,
+        Task<ApiResponse<StatementResponse>> GetStatementsInJson(string accountId, int period = 1,
             CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Mono.Net.Sdk.Account
         /// <param name="period">You can query 1-12 months bank statement in one single call.</param>
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
-        Task<ApiResponse<StatementPdfResponse>> GetAccountStatementsPdf(string accountId, int period = 1,
+        Task<ApiResponse<StatementPdfResponse>> GetStatementsPdf(string accountId, int period = 1,
             CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Mono.Net.Sdk.Account
         /// <param name="limit">limit the number of transactions returned per API call</param>
         /// <param name="type">filters transactions by debit or credit</param>
         /// <returns></returns>
-        Task<ApiResponse<TransactionsResponse>> GetAccountTransactions(string accountId,
+        Task<ApiResponse<TransactionsResponse>> GetTransactions(string accountId,
             string start = null,
             string end = null,
             string narration = null,
@@ -64,6 +64,14 @@ namespace Mono.Net.Sdk.Account
             string type = TransactionType.Credit,
             bool paginate = false,
             CancellationToken cancellationToken = default(CancellationToken));
+        
+        /// <summary>
+        /// Get the account income information for a specified accountId <paramref name="accountId"/>
+        /// </summary>
+        /// <param name="accountId">Account ID returned from token exchange</param>
+        /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
+        /// <returns></returns>
+        Task<ApiResponse<IncomeResponse>> GetIncome(string accountId, CancellationToken cancellationToken = default(CancellationToken));
     }
     
 }
