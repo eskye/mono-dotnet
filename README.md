@@ -38,11 +38,9 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 - [Account Information](#info)
 - [Account Statement](#statement)
 - [Poll Account Statement PDF](#statement_pdf)
-- Transactions
-- Credits
-- Debits
-- Income Information
-- Identity
+- [Transactions](#transactions) 
+- [Income Information](#income)
+- [Identity](#identity)
 - Sync Data
 - Re-auth Code
 - Institutions
@@ -89,6 +87,32 @@ With this resource, you set the output as PDF, and you can use this endpoint to 
 await monoClient.Accounts.GetPollPdfAccountStatementStatus(string accountId, string jobId); 
 
 ```
+
+### <a name="transactions"></a>Get Account Transactions
+This resource returns the known transactions on the account.
+```C#
+await _monoClient.Accounts.GetTransactions(string accountId, string type="credit"); 
+
+```
+For more options you can filter with the following:
+- Start: start period of the transactions eg. 01-10-2020
+- End: end period of the transactions eg. 07-10-2020
+- Narration: narration filters all transactions by narration e.g Uber transactions
+- Limit: limit the number of transactions returned per API call
+- Paginate: true or false (If you want to receive the data all at once or you want it paginated)
+
+### <a name="income"></a>Get Income Information
+This resource will return income information on the account.
+```C#
+ await _monoClient.Accounts.GetIncome(string accountId);
+```
+
+### <a name="identity"></a>Get Account Identity
+This resource returns a high level overview of an account identity data.
+```C#
+await _monoClient.Accounts.GetUserIdentity(string accountId);
+```
+
 ## License
 
 The MIT License (MIT). Please see <a href="https://github.com/eskye/mono-dotnet/blob/main/LICENSE">License File</a> for more information.
