@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Mono.Net.Sdk.Models.Account
+namespace Mono.Net.Sdk.Models.User
 {
     public class WalletBalanceResponse
     {

@@ -1,4 +1,5 @@
 ﻿using Mono.Net.Sdk.Account;
+using Mono.Net.Sdk.Auth;
 using Mono.Net.Sdk.Misc;
 using Mono.Net.Sdk.User;
 
@@ -20,5 +21,10 @@ namespace Mono.Net.Sdk
         /// Expose User Api Methods 
         /// </summary>
         IUsersClient User { get; }
+        
+        /// <summary>
+        /// Expose Auth Api Methods 
+        /// </summary>
+        IAuthClient Auth { get; }
     }
 }

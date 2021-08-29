@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Mono.Net.Sdk.Models;
 using Mono.Net.Sdk.Models.Account;
+using Mono.Net.Sdk.Models.User;
 
 namespace Mono.Net.Sdk.User
 {
