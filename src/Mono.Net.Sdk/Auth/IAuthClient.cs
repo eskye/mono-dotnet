@@ -1,0 +1,19 @@
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Mono.Net.Sdk.Models;
+using Mono.Net.Sdk.Models.Auth;
+
+namespace Mono.Net.Sdk.Auth
+{
+    public interface IAuthClient
+    {
+        /// <summary>
+        /// Use this endpoint to request for account id (that identifies the authenticated account) after successful enrolment on the Mono connect widget.
+        /// </summary>
+        /// <param name="request">Body request to retrieve the account id, contain the code returned from the mono widget after successful enrolment</param>
+        /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
+        /// <returns></returns>
+        Task<ApiResponse<AuthAccountResponse>> GetAccountId(AuthAccountRequest request, CancellationToken cancellationToken = default(CancellationToken));
+    }
+    
+}

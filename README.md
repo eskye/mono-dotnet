@@ -35,7 +35,7 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 
 ## Features
  
-
+- [Get Account ID from Auth Code](#account_id)
 - [Account Information](#info)
 - [Wallet Balance](#wallet)
 - [Account Statement](#statement)
@@ -57,6 +57,18 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 
 Once an instance of the client has been created you use the following methods:
 
+
+### <a name="account_id"></a>Get Account Id from token
+This resource returns the account id (that identifies the authenticated account) after successful enrolment on the Mono Connect Widget.
+
+```C#
+
+await _monoClient.Auth.GetAccountId(new AuthAccountRequest
+                {
+                    Code = "code_xxxxxxxxxxxx"
+                });
+
+```
 
 ### <a name="info"></a>Get Account Information
 This resource returns the account details with the financial institution.

@@ -1,4 +1,5 @@
 ﻿using Mono.Net.Sdk.Account;
+using Mono.Net.Sdk.Auth;
 using Mono.Net.Sdk.Config;
 using Mono.Net.Sdk.Misc;
 using Mono.Net.Sdk.User;
@@ -28,6 +29,7 @@ namespace Mono.Net.Sdk
             Accounts = new AccountsClient(client, config);
             Misc = new MiscClient(client, config);
             User = new UsersClient(client, config);
+            Auth = new AuthClient(client, config);
         }
         /// <summary>
         /// Get Accounts API.
@@ -43,6 +45,10 @@ namespace Mono.Net.Sdk
         /// </summary>
         public IUsersClient User { get; }
         
+        /// <summary>
+        /// Expose Auth Api Methods 
+        /// </summary>
+        public IAuthClient Auth { get; }
         public static MonoClient Create(string secretKey)
         {
             var configuration = new ApiConfig(secretKey); 

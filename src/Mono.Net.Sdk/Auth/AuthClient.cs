@@ -6,28 +6,28 @@ using Mono.Net.Sdk.Config;
 using Mono.Net.Sdk.Interfaces;
 using Mono.Net.Sdk.Models;
 using Mono.Net.Sdk.Models.Account;
-using Mono.Net.Sdk.Models.User;
+using Mono.Net.Sdk.Models.Auth;
 
-namespace Mono.Net.Sdk.User
+namespace Mono.Net.Sdk.Auth
 {
-    public class UsersClient : IUsersClient
+    public class AuthClient : IAuthClient
     {
         private readonly IBaseApiClient _apiClient;
         private readonly IApiAuthHeader _apiAuthHeader;
 
-        public UsersClient(IBaseApiClient apiClient, ApiConfig config)
+        public AuthClient(IBaseApiClient apiClient, ApiConfig config)
         {
             _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
             if (config == null) throw new ArgumentNullException(nameof(config));
             _apiAuthHeader = new SecretKeyAuthHeader(config);
         }
-        
-        public async Task<ApiResponse<WalletBalanceResponse>> GetWalletBalance(CancellationToken cancellationToken = default(CancellationToken))
+
+        public async Task<ApiResponse<AuthAccountResponse>> GetAccountId(AuthAccountRequest request, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var response = await _apiClient.GetHttpAsync<WalletBalanceResponse>($"users/stats/wallet", cancellationToken);
+            if (request == null) throw new ArgumentNullException(nameof(request));
+            if (string.IsNullOrEmpty(request.Code)) throw new ArgumentNullException(nameof(request.Code));
+            var response = await _apiClient.PostHttpAsync<AuthAccountResponse>($"account/auth", request, cancellationToken);
             return response.ToApiResponse();
         }
-        
-        
     }
 }
