@@ -35,7 +35,9 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 
 ## Features
  
+
 - [Account Information](#info)
+- [Wallet Balance](#wallet)
 - [Account Statement](#statement)
 - [Poll Account Statement PDF](#statement_pdf)
 - [Transactions](#transactions) 
@@ -62,6 +64,15 @@ This resource returns the account details with the financial institution.
 ```C#
 
  await monoClient.Accounts.GetInformation(string accountId);
+
+```
+
+### <a name="wallet"></a>Get Wallet Balance
+This resource allows you to check the available balance in your Mono wallet
+
+```C#
+
+ await _monoClient.User.GetWalletBalance();
 
 ```
 

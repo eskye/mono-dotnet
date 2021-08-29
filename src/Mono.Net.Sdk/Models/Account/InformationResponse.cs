@@ -59,5 +59,4 @@ namespace Mono.Net.Sdk.Models.Account
         [JsonProperty("auth_method")]
         public string AuthMethod { get; set; }
     }
-    
 }
