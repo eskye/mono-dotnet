@@ -47,7 +47,7 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 - [Unlink Account](#unlink)
 - [Business LookUp](#business_lookup)
 - [Business Shareholder Details](#business_shareholder_details)
-- Sync Data
+- [Sync Data](#sync)
 - Re-auth Code
 <br /><br />
 
@@ -163,6 +163,13 @@ This resource returns the shareholder details of a particular business/company u
 ```C#
 await _monoClient.Misc.ShareholderDetails(string businessId);
 
+```
+
+### <a name="sync"></a>Synchronise Data
+This resource attempts to Sync data manually.
+```C#
+ await _monoClient.Auth.SyncDataManually(string accountId);
+ 
 ```
 
 ## License

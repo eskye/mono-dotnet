@@ -37,6 +37,17 @@ namespace Mono.Net.Sdk.Tests.Auth
                 }));
          response.Message.ShouldBe("You are using an invalid or expired code."); 
         }
+        
+        [Fact]
+        public async Task CanManuallySyncAccountData()
+        {
+            var response = await _monoClient.Auth.SyncDataManually(ApiTestFixture.AccountId);
+            
+            response.ShouldNotBeNull();
+            response.Data.ShouldNotBeNull();
+            response.Data.Status.ShouldNotBeNull();
+            response.Data.Code.ShouldNotBeNull();
+        }
          
     }
 }

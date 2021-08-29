@@ -14,6 +14,14 @@ namespace Mono.Net.Sdk.Auth
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
         Task<ApiResponse<AuthAccountResponse>> GetAccountId(AuthAccountRequest request, CancellationToken cancellationToken = default(CancellationToken));
+        
+        /// <summary>
+        /// This method handles manual data sync of specified <paramref name="accountId"/> 
+        /// </summary>
+        /// <param name="accountId">Account ID returned from token exchange</param>
+        /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
+        /// <returns></returns>
+        Task<ApiResponse<ManualDataSyncResponse>> SyncDataManually(string accountId, CancellationToken cancellationToken = default(CancellationToken));
     }
     
 }

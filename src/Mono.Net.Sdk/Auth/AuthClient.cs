@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Mono.Net.Sdk.Account;
 using Mono.Net.Sdk.Config;
 using Mono.Net.Sdk.Interfaces;
 using Mono.Net.Sdk.Models;
-using Mono.Net.Sdk.Models.Account;
 using Mono.Net.Sdk.Models.Auth;
 
 namespace Mono.Net.Sdk.Auth
@@ -27,6 +25,13 @@ namespace Mono.Net.Sdk.Auth
             if (request == null) throw new ArgumentNullException(nameof(request));
             if (string.IsNullOrEmpty(request.Code)) throw new ArgumentNullException(nameof(request.Code));
             var response = await _apiClient.PostHttpAsync<AuthAccountResponse>($"account/auth", request, cancellationToken);
+            return response.ToApiResponse();
+        }
+
+        public async Task<ApiResponse<ManualDataSyncResponse>> SyncDataManually(string accountId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if(string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId)); 
+            var response = await _apiClient.PostHttpAsync<ManualDataSyncResponse>($"accounts/{accountId}/sync", null, cancellationToken);
             return response.ToApiResponse();
         }
     }
