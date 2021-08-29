@@ -41,11 +41,12 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 - [Transactions](#transactions) 
 - [Income Information](#income)
 - [Identity](#identity)
+- [Institutions](#institutions)
+- [Unlink Account](#unlink)
+- [Business LookUp](#business_lookup)
+- [Business Shareholder Details](#business_shareholder_details)
 - Sync Data
 - Re-auth Code
-- Institutions
-- BVN Lookup
-- Account Unlink
 <br /><br />
 
 # Implementation
@@ -111,6 +112,34 @@ This resource will return income information on the account.
 This resource returns a high level overview of an account identity data.
 ```C#
 await _monoClient.Accounts.GetUserIdentity(string accountId);
+```
+
+
+### <a name="institutions"></a>Get Financial Institutions
+This resource returns the available institutions on Mono
+```C#
+await _monoClient.Misc.GetInstitutions();
+
+```
+
+### <a name="unlink"></a>Unlink Account
+This resource provides your customers with the option to unlink their financial account(s)
+```C#
+await _monoClient.Misc.UnlinkAccount(string accountId)
+
+```
+
+### <a name="business_lookup"></a>Business Lookup
+This resource returns the information of a particular business/company by searching with the business/company name
+```C#
+await _monoClient.Misc.BusinessLookUp(string companyName);
+
+```
+### <a name="business_shareholder_details"></a>Business Shareholder Details
+This resource returns the shareholder details of a particular business/company using the ID returned from the [business lookup](#business_lookup) method.
+```C#
+await _monoClient.Misc.ShareholderDetails(string businessId);
+
 ```
 
 ## License

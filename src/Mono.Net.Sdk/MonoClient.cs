@@ -1,5 +1,6 @@
 ﻿using Mono.Net.Sdk.Account;
 using Mono.Net.Sdk.Config;
+using Mono.Net.Sdk.Misc;
 
 namespace Mono.Net.Sdk
 {
@@ -24,11 +25,16 @@ namespace Mono.Net.Sdk
         {
             var client = new BaseApiClient(config);
             Accounts = new AccountsClient(client, config);
+            Misc = new MiscClient(client, config);
         }
         /// <summary>
         /// Get Accounts API.
         /// </summary>
         public IAccountsClient Accounts { get; }
+        /// <summary>
+        /// Get the Misc.
+        /// </summary>
+        public IMiscClient Misc { get; }
         
         public static MonoClient Create(string secretKey)
         {
