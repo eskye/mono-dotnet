@@ -13,7 +13,8 @@ namespace Mono.Net.Sdk.Helpers
         /// <param name="value"></param>
         /// <returns></returns>
          public static HttpContent GetJsonBody(object value)
-         { 
+        {
+            if (value is null) return default;
              return new StringContent(JsonConvert.SerializeObject(value), Encoding.UTF8, "application/json");
          }
     }

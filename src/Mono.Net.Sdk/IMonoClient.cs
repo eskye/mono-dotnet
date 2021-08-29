@@ -1,4 +1,5 @@
 ﻿using Mono.Net.Sdk.Account;
+using Mono.Net.Sdk.Misc;
 
 namespace Mono.Net.Sdk
 {
@@ -8,5 +9,10 @@ namespace Mono.Net.Sdk
         /// Get the Accounts API.
         /// </summary>
         IAccountsClient Accounts { get; }
+        
+        /// <summary>
+        /// Get the Misc.
+        /// </summary>
+        IMiscClient Misc { get; }
     }
 }
