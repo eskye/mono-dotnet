@@ -1,4 +1,5 @@
 ﻿using Mono.Net.Sdk.Account;
+using Mono.Net.Sdk.Auth;
 
 namespace Mono.Net.Sdk
 {
@@ -8,5 +9,10 @@ namespace Mono.Net.Sdk
         /// Get the Accounts API.
         /// </summary>
         IAccountsClient Accounts { get; }
+
+        /// <summary>
+        /// Expose Auth Api Methods 
+        /// </summary>
+        IAuthClient Auth { get; }
     }
 }
