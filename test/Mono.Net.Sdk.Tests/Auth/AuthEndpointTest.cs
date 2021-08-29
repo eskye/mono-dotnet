@@ -48,6 +48,14 @@ namespace Mono.Net.Sdk.Tests.Auth
             response.Data.Status.ShouldNotBeNull();
             response.Data.Code.ShouldNotBeNull();
         }
-         
-    }
+
+        [Fact]
+        public async Task ReAuthenticateUser_Successful()
+        {
+          var response = await _monoClient.Auth.ReAuthorizeUser(ApiTestHelper.AccountId);
+          response.ShouldNotBeNull();
+          response.Data.ShouldNotBeNull();
+          response.Data.Token.ShouldNotBeNull();
+        }
+  }
 }
