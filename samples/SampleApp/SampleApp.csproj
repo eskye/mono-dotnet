@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Mono.Net.Sdk\Mono.Net.Sdk.csproj" />
+      <ProjectReference Include="..\..\src\Mono.Net.Sdk\Mono.Net.Sdk.csproj" />
     </ItemGroup>
 
 </Project>
