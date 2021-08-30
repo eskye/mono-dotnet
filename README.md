@@ -48,7 +48,7 @@ available in the [Mono Dashboard](https://app.withmono.com/apps).
 - [Business LookUp](#business_lookup)
 - [Business Shareholder Details](#business_shareholder_details)
 - [Sync Data](#sync)
-- Re-auth Code
+- [Re-auth Code](#reauth)
 <br /><br />
 
 # Implementation
@@ -171,6 +171,11 @@ This resource attempts to Sync data manually.
  await _monoClient.Auth.SyncDataManually(string accountId);
  
 ```
+### <a name="reauth"></a>Get Re-auth Code.
+This resource returns a Re-auth code which is a mono generated code for the account you want to re-authenticate,
+```C#
+await _monoClient.Auth.ReAuthorizeCode(string accountId);
+```
 
 ## License
 
@@ -178,4 +183,7 @@ The MIT License (MIT). Please see <a href="https://github.com/eskye/mono-dotnet/
 
 ## Contribution
 
-Please feel free to raise a pull request.
+If you would like to contribute to the Mono .NET SDK, Please feel free to raise a pull request.
+
+
+

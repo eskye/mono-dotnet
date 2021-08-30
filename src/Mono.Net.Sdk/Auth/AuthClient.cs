@@ -35,10 +35,10 @@ namespace Mono.Net.Sdk.Auth
             return response.ToApiResponse();
         }
 
-        public async Task<ApiResponse<ReAuthorizeUserResponse>> ReAuthorizeUser(string accountId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ApiResponse<ReAuthorizeCodeResponse>> ReAuthorizeCode(string accountId, CancellationToken cancellationToken = default(CancellationToken))
         {
           if (string.IsNullOrWhiteSpace(accountId)) throw new ArgumentNullException(nameof(accountId));
-          var response = await _apiClient.PostHttpAsync<ReAuthorizeUserResponse>($"accounts/{accountId}/reauthorise", null, cancellationToken);
+          var response = await _apiClient.PostHttpAsync<ReAuthorizeCodeResponse>($"accounts/{accountId}/reauthorise", null, cancellationToken);
           return response.ToApiResponse();
         }
   }

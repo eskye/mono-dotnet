@@ -41,7 +41,7 @@ namespace Mono.Net.Sdk.Tests.Accounts
             response.ShouldNotBeNull();
             response.Data.ShouldNotBeNull();
             response.Data.Id.ShouldNotBeNull();
-            response.Data.Status.ShouldBe("BUILDING");
+            response.Data.Status.ShouldNotBeNull();
             response.Data.Path.ShouldNotBeNull();
         }
     }
