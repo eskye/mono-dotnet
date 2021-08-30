@@ -5,10 +5,8 @@
     <PackageId>Mono.Net.Sdk</PackageId>
     <Title>Mono.Net SDK</Title>
     <Description>
-      Mono.co .Net SDK for .NET v1!
-
-      Mono helps digital businesses in Africa access their customers' financial account for data and payments
-      
+      Mono .Net SDK for .NET v1
+      Mono connect allows access to financial data from your users’ financial account. With Connect, you can get your customers transactions, real time balances, income etc.
       - Docs: https://docs.mono.co/
     </Description>
     <AssemblyTitle>Mono.Net.Sdk</AssemblyTitle>
