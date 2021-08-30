@@ -1,9 +1,10 @@
-﻿using System.Net.Http;
-using System.Text.Json.Serialization;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Mono.Net.Sdk.Exceptions;
 using Mono.Net.Sdk.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Mono.Net.Sdk.Helpers
 {
@@ -27,14 +28,30 @@ namespace Mono.Net.Sdk.Helpers
         /// <exception cref="MonoApiException"></exception>
         public static async Task<RequestResponseHandler<T>> FromMessage(HttpResponseMessage message)
         {
-            var response = new RequestResponseHandler<T>
+            try
             {
-                Message = message, 
-                ResponseBody = await message.Content.ReadAsStringAsync()
-            };
-            if (!message.IsSuccessStatusCode) throw new MonoApiException(message.StatusCode, message.ReasonPhrase);
-              response.Data = JsonConvert.DeserializeObject<T>(response.ResponseBody); 
-            return response;
+                var response = new RequestResponseHandler<T>
+                {
+                    Message = message, 
+                    ResponseBody = await message.Content.ReadAsStringAsync()
+                };
+                if (!message.IsSuccessStatusCode)
+                { 
+                   var errorResponse =  JsonConvert.DeserializeObject<JObject>(response.ResponseBody);
+                   if (errorResponse != null)
+                   {
+                       throw new MonoApiException(message.StatusCode, errorResponse["message"]?.ToString() ?? message.ReasonPhrase);
+                   }
+                   
+                }
+                response.Data = JsonConvert.DeserializeObject<T>(response.ResponseBody); 
+                return response;
+            }
+            catch (Exception e)
+            {
+                throw new MonoApiException(message.StatusCode, e.Message);
+            }
+           
         }
     }
 }
