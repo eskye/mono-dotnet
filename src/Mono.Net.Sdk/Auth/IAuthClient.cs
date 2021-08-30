@@ -29,7 +29,7 @@ namespace Mono.Net.Sdk.Auth
         /// <param name="accountId"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        Task<ApiResponse<ReAuthorizeUserResponse>> ReAuthorizeUser(string accountId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ApiResponse<ReAuthorizeCodeResponse>> ReAuthorizeCode(string accountId, CancellationToken cancellationToken = default(CancellationToken));
     }
     
 }

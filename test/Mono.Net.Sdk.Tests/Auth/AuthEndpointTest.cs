@@ -52,7 +52,7 @@ namespace Mono.Net.Sdk.Tests.Auth
         [Fact]
         public async Task ReAuthenticateUser_Successful()
         {
-          var response = await _monoClient.Auth.ReAuthorizeUser(ApiTestHelper.AccountId);
+          var response = await _monoClient.Auth.ReAuthorizeCode(ApiTestHelper.AccountId);
           response.ShouldNotBeNull();
           response.Data.ShouldNotBeNull();
           response.Data.Token.ShouldNotBeNull();
