@@ -14,8 +14,8 @@
     <Copyright>Sunkanmi Ijatuyi</Copyright>
     <AssemblyName>Mono.Net.Sdk</AssemblyName>
     <PackageProjectUrl>https://github.com/eskye/mono-dotnet</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/eskye/mono-dotnet/blob/main/LICENSE</PackageLicenseUrl>
-<!--    <PackageIconUrl>https://avatars.githubusercontent.com/u/69005537?s=200&v=4</PackageIconUrl>-->
+    <PackageLicense>https://github.com/eskye/mono-dotnet/blob/main/LICENSE</PackageLicenses>
+    <PackageIconUrl>https://github.com/eskye/mono-dotnet/blob/develop/assets/logo.png</PackageIconUrl>
     <PackageTags>mono.co;financial;data;sdk</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/eskye/mono-dotnet</RepositoryUrl>
