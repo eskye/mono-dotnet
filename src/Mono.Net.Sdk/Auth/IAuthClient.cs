@@ -22,6 +22,14 @@ namespace Mono.Net.Sdk.Auth
         /// <param name="cancellationToken">A cancellation token that can be used to cancel the underlying HTTP request.</param>
         /// <returns></returns>
         Task<ApiResponse<ManualDataSyncResponse>> SyncDataManually(string accountId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Use this endpoint to send re-authorization requests.
+        /// </summary>
+        /// <param name="accountId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<ApiResponse<ReAuthorizeUserResponse>> ReAuthorizeUser(string accountId, CancellationToken cancellationToken = default(CancellationToken));
     }
     
 }
