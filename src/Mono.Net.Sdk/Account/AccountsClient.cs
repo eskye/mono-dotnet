@@ -73,7 +73,7 @@ namespace Mono.Net.Sdk.Account
             if (!string.IsNullOrWhiteSpace(end) &&  !DateTime.TryParse(end, out _)) 
                 throw new ArgumentException("Invalid date format; please use dd-mm-yyy ie 05-01-2020");
             
-            if(!string.IsNullOrWhiteSpace(type) && (type is not (TransactionType.Credit or TransactionType.Debit)))
+            if(!string.IsNullOrWhiteSpace(type) && ((type != TransactionType.Credit) && (type != TransactionType.Debit)))
                 throw new ArgumentException("Invalid transaction filtering type: please use credit or debit to filter transaction");
                 
             var accountTransactionsOptionsRequest = new AccountTransactionsOptionsRequest

@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk", "src\Mono.Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono.Net.Sdk.Tests", "test\Mono.Net.Sdk.Tests\Mono.Net.Sdk.Tests.csproj", "{505C4D95-4BA4-4FFD-A4A4-0F2C601D13B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "src\SampleApp\SampleApp.csproj", "{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "samples\SampleApp\SampleApp.csproj", "{A58B11B1-1A07-4C1B-873F-BE7F66A7258C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{25D72A8C-2442-4D2D-B47C-EE6A017D3CE9}"
 EndProject
