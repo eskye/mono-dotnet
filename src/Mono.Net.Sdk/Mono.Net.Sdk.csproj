@@ -5,7 +5,8 @@
     <PackageId>Mono.Net.Sdk</PackageId>
     <Title>Mono.Net SDK</Title>
     <Description>
-      Mono.Net SDK for .NET v1
+      Mono .Net SDK for .NET v1
+      Mono connect allows access to financial data from your users’ financial account. With Connect, you can get your customers transactions, real time balances, income etc.
       - Docs: https://docs.mono.co/
     </Description>
     <AssemblyTitle>Mono.Net.Sdk</AssemblyTitle>
@@ -13,17 +14,16 @@
     <Authors>Sunkanmi Ijatuyi</Authors>
     <Copyright>Sunkanmi Ijatuyi</Copyright>
     <AssemblyName>Mono.Net.Sdk</AssemblyName>
-    <PackageProjectUrl>https://github.com/eskye/mono-dotnet</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/eskye/mono-dotnet/blob/main/LICENSE</PackageLicenseUrl>
-<!--    <PackageIconUrl>https://avatars.githubusercontent.com/u/69005537?s=200&v=4</PackageIconUrl>-->
+    <PackageProjectUrl>https://github.com/eskye/mono-dotnet</PackageProjectUrl> 
     <PackageTags>mono.co;financial;data;sdk</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/eskye/mono-dotnet</RepositoryUrl>
     <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
     <RootNamespace>Mono.Net.Sdk</RootNamespace> 
-    <Version>1.0.0</Version>
-    <PackageReleaseNotes>
-      Mono.co .NET SDK 1.0.0 Release Note!
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes> 
+      
+      Mono.co .NET SDK 1.0.1 Release Note! 
 
       It adds support for the following APIs:
       - Get Account ID from Auth Code
@@ -42,6 +42,8 @@
       - Re-auth Code
 
     </PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/eskye/mono-dotnet/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/eskye/mono-dotnet/main/assets/logo.png</PackageIconUrl>
   </PropertyGroup> 
  
 
