@@ -21,8 +21,9 @@
     <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
     <RootNamespace>Mono.Net.Sdk</RootNamespace> 
     <Version>1.0.1</Version>
-    <PackageReleaseNotes>
-      Mono.co .NET SDK 1.0.1 Release Note!
+    <PackageReleaseNotes> 
+      
+      Mono.co .NET SDK 1.0.1 Release Note! 
 
       It adds support for the following APIs:
       - Get Account ID from Auth Code
