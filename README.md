@@ -15,9 +15,20 @@ SDK is compatible with both .NET Core and .NET Standard project.
 <br/>
 
 ## Installation
- 
 
-<br />
+ Check the Mono.Net.Sdk on nuget: [https://www.nuget.org/packages/Mono.Net.Sdk](https://www.nuget.org/packages/Mono.Net.Sdk)
+ 
+ <br/>
+Install via the nuget package manager console:
+
+`PM> Install-Package MicroServiceAuthenticator`
+
+<br/>
+Install via the dotnet cli:
+
+
+
+ `> dotnet add package Mono.Net.Sdk` 
 
  ## Usage
 The Mono Sdk needs to be configured with your account's `secretKey`, which is

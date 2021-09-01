@@ -23,7 +23,7 @@
     <RootNamespace>Mono.Net.Sdk</RootNamespace> 
     <Version>1.0.0</Version>
     <PackageReleaseNotes>
-      Mono .NET SDK 1.0.0 Release Note!
+      Mono.co .NET SDK 1.0.0 Release Note!
 
       It adds support for the following APIs:
       - Get Account ID from Auth Code
