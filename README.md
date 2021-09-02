@@ -21,11 +21,10 @@ SDK is compatible with both .NET Core and .NET Standard project.
  <br/>
 Install via the nuget package manager console:
 
-`PM> Install-Package MicroServiceAuthenticator`
+`PM> Install-Package Mono.Net.Sdk`
 
 <br/>
 Install via the dotnet cli:
-
 
 
  `> dotnet add package Mono.Net.Sdk` 
